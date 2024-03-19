@@ -29,7 +29,7 @@ class ZitadelAuth:
         self.credentials = credentials
         self.introspection_url = introspection_url
 
-    def verificar_acessos(self, roles: list = []):
+    def verificar_acessos(self, roles: list = None):
         """
         Método assíncrono para verificar tokens de acesso em relação aos escopos requeridos usando o endpoint de introspecção do ZITADEL.
 
@@ -72,7 +72,7 @@ class ZitadelAuth:
 
             token_roles = token_data.get("urn:zitadel:iam:org:project:roles", {}).keys()
 
-            if not all(roles in token_roles for roles in roles):
+            if not all(role in token_roles for role in roles or []):
                 raise HTTPException(status_code=403, detail="Escopos insuficientes")
 
             return token_data
