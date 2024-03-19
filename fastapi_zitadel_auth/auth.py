@@ -29,7 +29,7 @@ class ZitadelAuth:
         self.credentials = credentials
         self.introspection_url = introspection_url
 
-    async def verificar_acessos(self, roles: list = []):
+    def verificar_acessos(self, roles: list = []):
         """
         Método assíncrono para verificar tokens de acesso em relação aos escopos requeridos usando o endpoint de introspecção do ZITADEL.
 
