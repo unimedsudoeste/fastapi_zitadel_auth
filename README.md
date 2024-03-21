@@ -1,6 +1,6 @@
 # FastAPI ZITADEL Auth
 
-Uma utilidade FastAPI para autenticação e autorização usando o recurso de introspecção de token do ZITADEL.
+Um utilitário FastAPI para autenticação e autorização usando o recurso de introspecção de token do ZITADEL.
 
 ## Recursos
 
@@ -9,10 +9,10 @@ Uma utilidade FastAPI para autenticação e autorização usando o recurso de in
 
 ## Instalação
 
-Para instalar `fastapi_zitadel_auth`, execute:
+Para instalar, execute:
 
 ```bash
-pip install fastapi_zitadel_auth
+pip install git+https://github.com/unimedsudoeste/fastapi_zitadel_auth.git
 ```
 
 ## Uso
