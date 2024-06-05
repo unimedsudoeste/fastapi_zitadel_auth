@@ -52,7 +52,10 @@ class ZitadelAuth:
             if not authorization:
                 raise HTTPException(status_code=401, detail="Token ausente")
             
-            token = split("(?i)Bearer ", authorization)[1]
+            try:
+                token = split("(?i)Bearer ", authorization)[1]
+            except IndexError:
+                raise HTTPException(status_code=401, detail="Token inválido")
 
             headers = {
                 "Content-Type": "application/x-www-form-urlencoded",
