@@ -1,6 +1,7 @@
 from fastapi import HTTPException, Request
 from httpx import AsyncClient
 from base64 import b64encode
+from re import split
 
 
 class ZitadelAuth:
@@ -50,8 +51,8 @@ class ZitadelAuth:
             authorization = request.headers.get("Authorization")
             if not authorization:
                 raise HTTPException(status_code=401, detail="Token ausente")
-
-            token = authorization.split("Bearer ")[1]
+            
+            token = split("(?i)Bearer ", authorization)[1]
 
             headers = {
                 "Content-Type": "application/x-www-form-urlencoded",
