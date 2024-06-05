@@ -51,7 +51,7 @@ class ZitadelAuth:
             authorization = request.headers.get("Authorization")
             if not authorization:
                 raise HTTPException(status_code=401, detail="Token ausente")
-            
+
             try:
                 token = split("(?i)Bearer ", authorization)[1]
             except IndexError:
